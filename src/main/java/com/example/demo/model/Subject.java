@@ -17,8 +17,13 @@ public class Subject {
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
 
+    public Teacher getTeacher() {
+        return teacher;
+    }
 
-
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public int getCredits() {
         return credits;

@@ -13,8 +13,19 @@ public class Teacher {
 
     private String name;
 
+    private String title;
+
+
     @OneToMany(mappedBy = "teacher")
     private Set<Subject> subjects;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Set<Subject> getSubjects() {
         return subjects;
