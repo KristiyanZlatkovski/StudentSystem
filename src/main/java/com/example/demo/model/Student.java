@@ -1,7 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
-
+import java.util.Set;
 
 
 @Entity
@@ -14,6 +14,17 @@ public class Student {
     private String name;
 
     private byte course;
+
+    @ManyToMany(mappedBy = "students")
+    private Set<Subject> subjects;
+
+    public Set<Subject> getSubjects() {
+        return subjects;
+    }
+
+    public void setSubjects(Set<Subject> subjects) {
+        this.subjects = subjects;
+    }
 
     public byte getCourse() {
         return course;
@@ -37,5 +48,10 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void addSubject(Subject subject) {
+        this.subjects.add(subject);
+        subject.getStudents().add(this);
     }
 }

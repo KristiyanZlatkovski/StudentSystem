@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "subjects")
@@ -17,8 +18,19 @@ public class Subject {
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
 
+    @ManyToMany
+    private Set<Student> students;
+
     public Teacher getTeacher() {
         return teacher;
+    }
+
+    public Set<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(Set<Student> students) {
+        this.students = students;
     }
 
     public void setTeacher(Teacher teacher) {
