@@ -1,9 +1,10 @@
 package com.example.demo.repository;
 
-import com.example.demo.model.StudentYear;
+import com.example.demo.model.StudentCredits;
 
 
-public interface StudentCreditsRepo extends ReadOnlyRepository<StudentYear, Long> {
+
+public interface StudentCreditsRepo extends ReadOnlyRepository<StudentCredits, Long> {
 
 
 }
