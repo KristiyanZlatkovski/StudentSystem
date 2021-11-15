@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="screen" th:href="@{/css/common.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="container content table-responsive" >
+
+
+
+
+    <table class="table table-dark mt-5" id="tourTable">
+        <thead>
+        <tr>
+
+            <th scope="col">Teacher</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Enlisted Students Count</th>
+
+
+        </tr>
+        </thead>
+        <tbody id="rowAdd" >
+        <tr th:each="record : ${records}" >
+            <td><p th:text="${record.teacherName}"></p></td>
+            <td><p th:text="${record.subjectName}"></p></td>
+            <td><p th:text="${record.enlistedStudentsCount}"></p></td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+</body>
+</html>

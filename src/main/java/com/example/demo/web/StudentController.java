@@ -4,6 +4,9 @@ package com.example.demo.web;
 import com.example.demo.model.Student;
 import com.example.demo.model.Subject;
 import com.example.demo.model.Teacher;
+import com.example.demo.model.TeacherSubjectEnlistedCount;
+import com.example.demo.repository.StudentCreditsRepo;
+import com.example.demo.repository.TSECountRepo;
 import com.example.demo.service.StudentService;
 import com.example.demo.service.SubjectService;
 import com.example.demo.service.TeacherService;
@@ -12,6 +15,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import java.util.List;
 
 @Controller
 public class StudentController {
@@ -22,12 +27,29 @@ public class StudentController {
     private TeacherService teacherService;
     @Autowired
     private SubjectService subjectService;
+    @Autowired
+    private StudentCreditsRepo repo;
+    @Autowired
+    private TSECountRepo countRepo;
+
 
     @GetMapping({"/"})
     public String homeShort() {
 
+
         return "home";
     }
+
+    @GetMapping({"/teacher_subject_enlisted_count"})
+    public String teacherSubjectEnlistedCount(Model model) {
+        model.addAttribute("records", countRepo.findAll());
+
+
+
+        return "teacherSubjectEnlistedCount";
+    }
+
+
 
     @GetMapping({"/student"})
     public String enterStudent(Model model) {
