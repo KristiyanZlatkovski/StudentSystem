@@ -16,7 +16,11 @@ body {
   font-family: "Open Sans Condensed", sans-serif;
 }
 
-
-
+p {
+  color: navy;
+  text-indent: 30px;
+  text-transform: uppercase;
+  text-align: center !important;
+}
 
 

@@ -49,7 +49,14 @@ public class StudentController {
         return "teacherSubjectEnlistedCount";
     }
 
+    @GetMapping({"/teachers_and_students_list"})
+    public String teachersAndStudentsList(Model model) {
+        model.addAttribute("studentRecords", studentService.findAllStudentsAndTheirYearInCollege());
+        model.addAttribute("teacherRecords", teacherService.getAllTeachersAndSubjectsCount());
 
+
+        return "teachersAndStudentsList";
+    }
 
     @GetMapping({"/student"})
     public String enterStudent(Model model) {
