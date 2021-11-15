@@ -9,18 +9,18 @@ import javax.persistence.Table;
 @Entity
     @Immutable
     @Table(name = "student_and_course")
-    public class StudentCredits {
+    public class StudentYear {
 
         @Id
         private String name;
 
-        private int course;
+        private int yearInCollege;
 
         public String getName() {
             return name;
         }
 
-        public int getCourse() {
-            return course;
+        public int getYearInCollege() {
+            return yearInCollege;
         }
     }

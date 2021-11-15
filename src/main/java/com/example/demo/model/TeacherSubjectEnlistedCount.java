@@ -23,23 +23,11 @@ public class TeacherSubjectEnlistedCount {
         return teacherName;
     }
 
-    public void setTeacherName(String teacherName) {
-        this.teacherName = teacherName;
-    }
-
     public String getSubjectName() {
         return subjectName;
     }
 
-    public void setSubjectName(String subjectName) {
-        this.subjectName = subjectName;
-    }
-
     public int getEnlistedStudentsCount() {
         return enlistedStudentsCount;
-    }
-
-    public void setEnlistedStudentsCount(int enlistedStudentsCount) {
-        this.enlistedStudentsCount = enlistedStudentsCount;
     }
 }
