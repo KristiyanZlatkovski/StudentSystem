@@ -59,7 +59,14 @@ public class StudentController {
 
         return "teachersAndStudentsList";
     }
+    @GetMapping({"/top_three_statistics"})
+    public String topThreeStatistics(Model model) {
+        model.addAttribute("subjectRecords", subjectService.findTop3SubjectsByStudentCount());
+        model.addAttribute("teacherRecords", teacherService.getTopThreeTeachersByStudentCount());
 
+
+        return "TopThreeStatisticsList";
+    }
     @GetMapping({"/students_and_credits"})
     public String studentsAndTotalCredits(Model model) {
         model.addAttribute("studentRecords", studentService.findAllStudentsAndTheirTotalCredits());

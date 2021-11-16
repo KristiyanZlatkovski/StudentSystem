@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" media="screen" th:href="@{/css/common.css}"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<header id="header" class="sticky" style="z-index: 100">
+    <div th:replace="layout :: header">
+    </div>
+</header>
+
+
+<div class="container content table-responsive" >
+    <p id="title">Top Three Statistics<p>
+    <table class="table table-dark mt-5" id="top3Teachers">
+        <thead>
+        <tr>
+
+            <th scope="col">Teacher Name</th>
+            <th scope="col">Total Students Count</th>
+
+        </tr>
+        </thead>
+        <tbody id="rowAdd" >
+        <tr th:each="teacherRecord : ${teacherRecords}" >
+            <td><p th:text="${teacherRecord.name}"></p></td>
+            <td><p th:text="${teacherRecord.totalStudents}"></p></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+    <table class="table table-dark " id="top3Subjects">
+        <thead>
+        <tr>
+
+            <th scope="col">Subject Name</th>
+            <th scope="col">Total Enlisted Students</th>
+
+        </tr>
+        </thead>
+        <tbody id="rowAdd" >
+        <tr th:each="subjectRecord : ${subjectRecords}" >
+            <td><p th:text="${subjectRecord.subjectName}"></p></td>
+            <td><p th:text="${subjectRecord.enlistedStudents}"></p></td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+
+
+</div>
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+</body>
+</html>
