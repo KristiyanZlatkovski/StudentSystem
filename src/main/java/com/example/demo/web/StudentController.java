@@ -60,7 +60,7 @@ public class StudentController {
         return "teachersAndStudentsList";
     }
 
-    @GetMapping({"/student"})
+    @GetMapping({"/add_new_student"})
     public String enterStudent(Model model) {
         model.addAttribute("studentForm", new Student());
         return "studentForm";
@@ -72,7 +72,7 @@ public class StudentController {
         return "home";
     }
 
-    @GetMapping({"/teacher"})
+    @GetMapping({"/add_new_teacher"})
     public String enterTeacher(Model model) {
         model.addAttribute("teacherForm", new Teacher());
         return "teacherForm";
@@ -84,7 +84,7 @@ public class StudentController {
         return "home";
     }
 
-    @GetMapping({"/subject"})
+    @GetMapping({"/add_new_subject"})
     public String enterSubject(Model model) {
         model.addAttribute("subjectForm", new Subject());
         model.addAttribute("teachers", teacherService.getAllTeachers());
