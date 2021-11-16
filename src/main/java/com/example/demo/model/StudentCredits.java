@@ -14,13 +14,13 @@ import javax.persistence.Table;
         @Id
         private String name;
 
-        private int credits;
+        private int totalCredits;
 
         public String getName() {
             return name;
         }
 
-        public int getCredits() {
-            return credits;
+        public int getTotalCredits() {
+            return totalCredits;
         }
     }

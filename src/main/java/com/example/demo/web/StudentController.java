@@ -60,6 +60,17 @@ public class StudentController {
         return "teachersAndStudentsList";
     }
 
+    @GetMapping({"/students_and_credits"})
+    public String studentsAndTotalCredits(Model model) {
+        model.addAttribute("studentRecords", studentService.findAllStudentsAndTheirTotalCredits());
+
+
+        return "studentCreditsList";
+    }
+
+
+
+
     @GetMapping({"/add_new_student"})
     public String enterStudent(Model model) {
         model.addAttribute("studentForm", new Student());
@@ -96,6 +107,14 @@ public class StudentController {
         subjectService.save(subject);
         return "home";
     }
+
+
+
+
+
+
+
+
 
 
     @GetMapping("/student_subjects")
