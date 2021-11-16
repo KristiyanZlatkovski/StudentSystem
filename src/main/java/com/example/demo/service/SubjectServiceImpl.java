@@ -4,7 +4,9 @@ package com.example.demo.service;
 
 
 import com.example.demo.model.Student;
+import com.example.demo.model.StudentsPerSubject;
 import com.example.demo.model.Subject;
+import com.example.demo.repository.StudentsPerSubjectRepo;
 import com.example.demo.repository.SubjectRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,6 +17,9 @@ import java.util.List;
 public class SubjectServiceImpl implements SubjectService {
     @Autowired
     private SubjectRepo subjectRepo;
+    @Autowired
+    private StudentsPerSubjectRepo studentsPerSubjectRepo;
+
 
     @Override
     public void save(Subject subject) {
@@ -34,5 +39,10 @@ public class SubjectServiceImpl implements SubjectService {
     @Override
     public List<Subject> findAllSubjects() {
         return subjectRepo.findAll();
+    }
+
+    @Override
+    public List<StudentsPerSubject> findTop3SubjectsByStudentCount() {
+        return  studentsPerSubjectRepo.findAll();
     }
 }
