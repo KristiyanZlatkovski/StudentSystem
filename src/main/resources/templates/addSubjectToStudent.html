@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+
+<head>
+
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.css'>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+
+
+    <style>
+ 	@import url(https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+ 	body {
+  background-image: url('/images/home.jpg');
+	background-repeat: no-repeat;
+	background-attachment: fixed !important;
+
+	height: 100vh;
+	background-position: center, center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+   font-family: "Open Sans Condensed", sans-serif;
+
+
+
+  width:100%;
+}
+
+html{
+width:100%;
+}
+
+h2{
+
+
+	color:white;
+}
+
+
+label{
+color:white;
+
+}
+table, tbody, tr, th, td{
+ 	 background: rgba(100, 100, 100, 0.3) !important;
+
+
+ 	}
+
+ 		table{
+ 	margin-top:5%;
+
+
+ 	}
+
+ thead{
+
+  background: rgba(100, 100, 100, 1) !important;
+ }
+
+ a{
+
+
+	color:white;
+}
+
+
+
+</style>
+
+
+
+
+
+
+
+</head>
+<body>
+
+
+
+
+
+
+<div class="container content">
+
+    <h2>Enlisted subjects by students</h2>
+
+    <form  class="form-inline"   action="" id="ajaxForm">
+
+        <div class="form-group">
+
+            <select   class="form-control" id="student">
+                <option value="0"selected hidden>Choose student...</option>
+                <option th:each="student : ${students}"
+                        th:value="${student.id}"
+                        th:text="${student.name}">
+                </option>
+            </select>
+
+        </div>
+
+        <div class="form-group">
+
+            <select   class="form-control" id="subject">
+                <option value="0"selected hidden>Choose subject...</option>
+                <option th:each="subject : ${subjects}"
+                        th:value="${subject.id}"
+                        th:text="${subject.name}">
+            </select>
+        </div>
+
+
+
+        <button class="btn btn-lg btn-primary ml-1 " onclick="enlistStudentForSubject()">Enlist</button>
+
+
+
+
+    </form>
+
+
+    <table class="table table-dark" id="subjectsByStudentTable">
+        <thead>
+        <tr>
+            <th scope="col">№</th>
+            <th scope="col">Subject</th>
+            <th scope="col">Options</th>
+
+        </tr>
+        </thead>
+        <tbody id="rowAdd">
+        <tr th:each="subjectByStudent,count : ${subjectsByStudent}">
+
+            <th scope="row" th:text="${count.count}"></th>
+            <td><a th:text="${subjectByStudent.name}"></a></td>
+            <td><button class="btn"  th:onclick="'removeSubject(' + ${subjectByStudent.id} + ')'"><i class="fa fa-trash"></i> Remove</button></td>
+
+
+        </tr>
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+    jQuery('#ajaxForm').submit( function(e){
+    e.preventDefault();
+
+});
+     $("#student").change(function() {
+    	 getAllSubjects();
+    });
+
+});
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+
+function removeSubject(subjectId){
+var studentId = $("#student").val();
+
+
+
+
+
+$.ajax({
+    type : "DELETE",
+    url : "/student_subjects/remove_subject",
+    data: {"studentId" : studentId,"subjectId": subjectId},
+
+
+    success: function (fragment) {
+    	 $("#subjectsByStudentTable").replaceWith(fragment);
+
+    },
+    error: function (e) {
+        console.log(e);
+    }
+})
+
+
+
+}
+
+
+function getAllSubjects(){
+	var studentId = $("#student").val();
+
+	$.ajax({
+        type: "GET",
+        url : "/student_subjects/get_all_subjects_by_student",
+        data: {"studentId" : studentId},
+        async: true,
+        success: function (fragment) {
+       	 $("#subjectsByStudentTable").replaceWith(fragment);
+
+       },
+       error: function (e) {
+           console.log(e);
+       }
+
+    });
+
+
+}
+
+function enlistStudentForSubject(){
+
+var subjectId= $("#subject").val();
+
+var studentId = $("#student").val();
+
+
+
+$.ajax({
+    type : "POST",
+    url : "/student_subjects/enroll_new_subject",
+    data: {"studentId" : studentId,"subjectId": subjectId},
+
+
+    success: function (fragment) {
+    	 $("#subjectsByStudentTable").replaceWith(fragment);
+
+    },
+    error: function (e) {
+        console.log(e);
+    }
+})
+
+
+
+}
+
+
+
+
+
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.2/umd/popper.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js'></script>
+
+</body>
+</html>

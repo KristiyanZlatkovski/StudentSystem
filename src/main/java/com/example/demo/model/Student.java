@@ -54,4 +54,12 @@ public class Student {
         this.subjects.add(subject);
         subject.getStudents().add(this);
     }
+
+    public void removeSubject(Subject subject) {
+        this.subjects.remove(subject);
+        subject.getStudents().remove(this);
+    }
+
+
+
 }

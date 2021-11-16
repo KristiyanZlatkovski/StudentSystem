@@ -45,4 +45,9 @@ public class StudentServiceImpl implements StudentService {
     public List<StudentCredits> findAllStudentsAndTheirTotalCredits() {
         return studentCreditsRepo.findAll();
     }
+
+    @Override
+    public Student findStudentById(Long id) {
+       return studentRepo.findById(id).get();
+    }
 }

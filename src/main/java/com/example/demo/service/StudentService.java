@@ -13,4 +13,5 @@ public interface StudentService {
     List<Student> findAllStudents();
     List<StudentYear> findAllStudentsAndTheirYearInCollege();
     List<StudentCredits> findAllStudentsAndTheirTotalCredits();
+    Student findStudentById(Long id);
 }
