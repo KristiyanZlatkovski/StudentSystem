@@ -1,6 +1,7 @@
 package com.example.demo.model;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -30,10 +31,12 @@ public class Subject {
     }
 
     public void setStudents(Set<Student> students) {
+        if(students.isEmpty()|| Objects.isNull(students)) {throw new IllegalArgumentException("students cant be empty");}
         this.students = students;
     }
 
     public void setTeacher(Teacher teacher) {
+        if(Objects.isNull(students)) {throw new IllegalArgumentException("teacher cant be empty");}
         this.teacher = teacher;
     }
 
@@ -42,6 +45,7 @@ public class Subject {
     }
 
     public void setCredits(int credits) {
+        if(credits<=0) {throw new IllegalArgumentException("Student year in college can't be 0 or less");}
         this.credits = credits;
     }
 
@@ -50,6 +54,7 @@ public class Subject {
     }
 
     public void setId(Long id) {
+        if(id<=0) {throw new IllegalArgumentException("Id can't be 0 or less");}
         this.id = id;
     }
 
@@ -58,6 +63,7 @@ public class Subject {
     }
 
     public void setName(String name) {
+        if(name==null || name.trim().isEmpty()) {throw new IllegalArgumentException("invalid name");}
         this.name = name;
     }
 }
