@@ -27,3 +27,6 @@ Tables and views
 
 Students and Teachers List
 ![image](https://user-images.githubusercontent.com/52286225/142093707-882c2377-5fdb-4838-943a-03e571e4c1d8.png)
+
+Student Enlisting
+![image](https://user-images.githubusercontent.com/52286225/142093882-b4d7937f-c9d8-49ee-99c1-54841e020d5d.png)
