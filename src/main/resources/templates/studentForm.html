@@ -30,7 +30,7 @@
 <div class="container">
 
     <form method="POST" autocomplete="off" class="form-signin" th:object="${studentForm}" th:action="@{/addStudent}">
-        <h2 class="form-signin-heading">Enter student credentials</h2>
+        <h2 class="form-signin-heading">Enter student data</h2>
         <div class="form-group">
             <input type="text" th:field="*{name}" class="form-control" placeholder="name"
                    autofocus="true">
