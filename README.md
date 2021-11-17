@@ -23,3 +23,7 @@ Setup the database configuration in the application.properties file(name and pas
 ### App preview
 
 Tables and views
+![database](https://user-images.githubusercontent.com/52286225/142093562-244aaf44-77c1-4f61-95f3-d86996aae863.png)
+
+Students and Teachers List
+![image](https://user-images.githubusercontent.com/52286225/142093707-882c2377-5fdb-4838-943a-03e571e4c1d8.png)
