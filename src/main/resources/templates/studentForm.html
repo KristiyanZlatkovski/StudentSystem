@@ -33,19 +33,19 @@
         <h2 class="form-signin-heading">Enter student data</h2>
         <div class="form-group">
             <input type="text" th:field="*{name}" class="form-control" placeholder="name"
-                   autofocus="true">
+                   autofocus="true" required>
         </div>
 
 
         <div class="form-group">
-            <label class="form-control-label" for="weightBox" >Enter student course.</label>
-            <input class="form-control"  type="number" th:field="*{course}"   maxlength="5" id="weightBox"/>
+            <label class="form-control-label" for="weightBox" >Enter student year in college.</label>
+            <input class="form-control"  type="number" th:field="*{course}"  min="1" max="4" id="weightBox" required/>
         </div>
 
 
 
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Изпращане</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
     </form>
 
 </div>

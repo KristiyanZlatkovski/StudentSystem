@@ -33,13 +33,13 @@
         <h2 class="form-signin-heading">Enter subject data</h2>
         <div class="form-group">
             <input type="text" th:field="*{name}" class="form-control" placeholder="name"
-                   autofocus="true">
+                   autofocus="true" required>
         </div>
 
 
         <div class="form-group">
             <label class="form-control-label" for="weightBox" >Enter subjects credits.</label>
-            <input class="form-control"  type="number" th:field="*{credits}"   maxlength="5" id="weightBox"/>
+            <input class="form-control"  type="number" th:field="*{credits}"  min="1" maxlength="5" id="weightBox" required/>
         </div>
 
         <div class="form-group">
@@ -55,7 +55,7 @@
         </div>
 
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Изпращане</button>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Save</button>
     </form>
 
 </div>
